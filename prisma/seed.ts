@@ -1,11 +1,13 @@
+/* eslint-disable prettier/prettier */
 import { PrismaClient } from '@prisma/client';
 
 import { customers } from './seeds/customers';
-
+//console.log("Inside Prisma");
 const prisma = new PrismaClient();
 
-async function main() {
+export async function main() {
   for (const customer of customers) {
+    //console.log("Inside Prisma");
     await prisma.customer.upsert({
       where: { id: customer.id },
       update: {},
